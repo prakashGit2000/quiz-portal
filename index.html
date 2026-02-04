@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PRAKASH SIR VITAP</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      text-align: center;
+      padding-top: 60px;
+    }
+    .box {
+      background: white;
+      width: 350px;
+      margin: auto;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 8px;
+    }
+    button {
+      background: #2a5298;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    #result { margin-top: 15px; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h2>PRAKASH SIR – VITAP</h2>
+  <input type="text" id="roll" placeholder="Register No / Last digits"><br>
+  <input type="email" id="email" placeholder="Email ID"><br>
+  <button onclick="checkMarks()">Check Marks</button>
+  <div id="result"></div>
+</div>
+
+<script>
+function checkMarks() {
+  var roll = document.getElementById("roll").value;
+  var email = document.getElementById("email").value;
+
+  document.getElementById("result").innerHTML = "Checking...";
+
+fetch("https://script.google.com/macros/s/AKfycbwceXcT_giBKm8OmnHRZtowWFXEehfTZBFRFNWFww5QtHx-FXAna5KklhZ5U1YCli3v/exec?roll=" + roll + "&email=" + email)
+
+  .then(res => res.json())
+  .then(data => {
+    if (data.status === "found") {
+      document.getElementById("result").innerHTML =
+        "Name: " + data.name + "<br>" +
+        "Slot: " + data.slot + "<br>" +
+        "Marks: " + data.marks;
+    } else {
+      document.getElementById("result").innerHTML = "No record found";
+    }
+  });
+
+}
+</script>
+
+</body>
+</html>
