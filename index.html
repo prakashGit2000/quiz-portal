@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <title>PRAKASH SIR VITAP</title>
@@ -69,100 +69,6 @@ fetch("https://script.google.com/macros/s/AKfycbwceXcT_giBKm8OmnHRZtowWFXEehfTZB
 </script>
 
 </body>
-</html> -->
-
-
-<!DOCTYPE html>
-<html>
-<head>
-  <title>PRAKASH SIR VITAP</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
-      text-align: center;
-      padding-top: 60px;
-    }
-    .box {
-      background: white;
-      width: 350px;
-      margin: auto;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    }
-    input {
-      width: 90%;
-      padding: 10px;
-      margin: 8px;
-    }
-    button {
-      background: #2a5298;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    #result {
-      margin-top: 15px;
-      font-weight: bold;
-      line-height: 1.6;
-    }
-  </style>
-</head>
-<body>
-
-<div class="box">
-  <h2>PRAKASH SIR – VITAP</h2>
-
-  <input type="text" id="roll" placeholder="Register No / Last digits"><br>
-  <input type="email" id="email" placeholder="Email ID"><br>
-
-  <button onclick="checkMarks()">Check Marks</button>
-
-  <div id="result"></div>
-</div>
-
-<script>
-function checkMarks() {
-  var roll = document.getElementById("roll").value.trim();
-  var email = document.getElementById("email").value.trim();
-  var resultBox = document.getElementById("result");
-
-  if (roll === "" || email === "") {
-    resultBox.innerHTML = "⚠️ Please enter Roll No and Email";
-    return;
-  }
-
-  resultBox.innerHTML = "Checking... ⏳";
-
-  fetch("https://script.google.com/macros/s/AKfycbwceXcT_giBKm8OmnHRZtowWFXEehfTZBFRFNWFww5QtHx-FXAna5KklhZ5U1YCli3v/exec?roll=" 
-        + encodeURIComponent(roll) + 
-        "&email=" + encodeURIComponent(email))
-
-    .then(res => res.json())
-
-    .then(data => {
-      if (data.status === "found") {
-
-        resultBox.innerHTML =
-          "Name: " + data.name + "<br>" +
-          "Slot: " + data.slot + "<br><br>" +
-          "QUIZ-1: " + (data.quiz1 ?? 0) + "<br>" +
-          "QUIZ-2: " + (data.quiz2 ?? 0);
-
-      } else {
-        resultBox.innerHTML = "❌ No record found";
-      }
-    })
-
-    .catch(err => {
-      resultBox.innerHTML = "⚠️ Server error. Try again.";
-      console.error(err);
-    });
-}
-</script>
-
-</body>
 </html>
+
+
