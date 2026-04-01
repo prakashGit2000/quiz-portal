@@ -53,16 +53,27 @@ function checkMarks() {
 fetch("https://script.google.com/macros/s/AKfycbwceXcT_giBKm8OmnHRZtowWFXEehfTZBFRFNWFww5QtHx-FXAna5KklhZ5U1YCli3v/exec?roll=" + roll + "&email=" + email)
 
   .then(res => res.json())
+  // .then(data => {
+  //   if (data.status === "found") {
+  //     document.getElementById("result").innerHTML =
+  //       "Name: " + data.name + "<br>" +
+  //       "Slot: " + data.slot + "<br>" +
+  //       "Marks: " + data.marks;
+  //   } else {
+  //     document.getElementById("result").innerHTML = "No record found";
+  //   }
+  // });
   .then(data => {
-    if (data.status === "found") {
-      document.getElementById("result").innerHTML =
-        "Name: " + data.name + "<br>" +
-        "Slot: " + data.slot + "<br>" +
-        "Marks: " + data.marks;
-    } else {
-      document.getElementById("result").innerHTML = "No record found";
-    }
-  });
+  if (data.status === "found") {
+    document.getElementById("result").innerHTML =
+      "Name: " + data.name + "<br>" +
+      "Slot: " + data.slot + "<br>" +
+      "QUIZ-1: " + data.quiz1 + "<br>" +
+      "QUIZ-2: " + data.quiz2;
+  } else {
+    document.getElementById("result").innerHTML = "No record found";
+  }
+});
 
 }
 </script>
