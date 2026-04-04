@@ -57,10 +57,10 @@ fetch("https://script.google.com/macros/s/AKfycbybrNMLAiwUh5ILivpWLroXvXL0JRolne
     if (data.status === "found") {
      
     document.getElementById("result").innerHTML =
-  "Name: " + data.name + "/10<br>" +
+  "Name: " + data.name + "<br>" +
   "Slot: " + data.slot + "<br>" +
-  "Quiz-1: " + data.quiz1 + "/30<br>" +
-  "Quiz-2: " + data.quiz2;
+  "Quiz-1: " + data.quiz1 + "/10<br>" +
+  "Quiz-2: " + data.quiz2+ "/30";
   }
     else {
       document.getElementById("result").innerHTML = "No record found";
