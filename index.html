@@ -55,11 +55,14 @@ fetch("https://script.google.com/macros/s/AKfycbyH1is5hoTNTbRmL4bnKwox3WeIHjLy19
   .then(res => res.json())
   .then(data => {
     if (data.status === "found") {
-      document.getElementById("result").innerHTML =
-        "Name: " + data.name + "<br>" +
-        "Slot: " + data.slot + "<br>" +
-        "Marks: " + data.marks;
-    } else {
+     
+    document.getElementById("result").innerHTML =
+  "Name: " + data.name + "<br>" +
+  "Slot: " + data.slot + "<br>" +
+  "Quiz-1: " + data.quiz1 + "<br>" +
+  "Quiz-2: " + data.quiz2;
+  }
+    else {
       document.getElementById("result").innerHTML = "No record found";
     }
   });
